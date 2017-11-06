@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <title>Настроение</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script id="quotes_json" type="application/json">
+       [
+         {
+           "phrase": "Кукурузные хлопья - теперь без асбеста!",
+           "signature": "©Неизвестный маркетолог"
+         },
+         {
+           "phrase": "Собираюсь жить вечно, пока всё идёт нормально"
+         },
+         {
+           "phrase": "Вывеска над кафе — '\u003cМы открылись\u003e'. Что-то не так. Где же '\u003c/Мы открылись\u003e'?"
+         },
+         {
+           "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
+         },
+         {
+           "phrase": "Вся жизнь уходит на то, чтобы научиться жизни.",
+           "signature": "Джонатан Сафран Фоер"
+         },
+         {
+           "phrase": "Похоже, чем старше мужчина, тем моложе его очередная жена.",
+           "signature": "Элизабет Тейлор"
+         }
+      ]
+    </script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  </head>
+  <body>
+    <br>
+    <div class="container">
+      <div class="card">
+        <div class="card-header text-danger">
+          😃
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p class="text-primary" id="js-phrase"></p>
+            <footer id="js-signature"></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <script>
+       var quotes = JSON.parse(document.getElementById("quotes_json").innerText);
+       var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+       document.getElementById("js-phrase").innerText = randomQuote.phrase;
+       if (randomQuote.signature != undefined){
+           document.getElementById("js-signature").className = "blockquote-footer text-danger"
+           document.getElementById("js-signature").innerText = randomQuote.signature;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
